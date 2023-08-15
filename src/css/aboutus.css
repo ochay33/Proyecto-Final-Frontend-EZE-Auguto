@@ -1,0 +1,173 @@
+.section-white {
+    background: #fff;
+    padding: 70px 0;
+}
+
+.team-item {
+    background: #f1f1f1;
+    text-align: center;
+    width: 80%;
+    height: 90%;
+    margin: 20px;
+    padding: 50px 20px 40px 20px;
+    border-radius: 8px 8px;
+}
+
+.team-item:hover {
+    background:#b8733a;
+    color: white;
+    transition: 0.5s all;
+}
+
+.team-item img {
+    width: 12rem;
+    height: 14rem;
+}
+
+.team-item h3 {
+    margin: 20px 0 1px 0 !important;
+    color: #454545;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.section-subtitle {
+    white-space: pre-line;
+    margin-top: 25px;
+}
+
+.team-item:hover h3 {
+    color: rgb(236, 236, 236);
+    transition: 0.5s all;
+}
+
+.team-info {
+    display: block;
+    margin-bottom: 0;
+}
+
+.team-info p {
+    color: #1f1f1f;
+    font-style: italic;
+}
+
+.team-info::after{
+    background: #008aff;
+    background: -webkit-linear-gradient(
+        135deg, #6b02ff 0%, #984bef 100%
+    );
+    background: -o-linear-gradient(
+        135deg, #6b02ff 0%, #984bef 100%
+    );
+    background: -moz-linear-gradient(
+        135deg, #6b02ff 0%, #984bef 100%
+    );
+    background: linear-gradient(
+        135deg, #6b02ff 0%, #984bef 100%
+    );
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    width: 50px;
+    height: 3px;
+    margin-top: -20px ;
+}
+
+.team-img {
+    max-width: 140px;
+    padding: 6px 6px;
+    background-color: #dedede;
+    border-radius: 50%;
+}
+
+ul.team-icon {
+    margin-top: 25px;
+    padding-left: 0;
+}
+
+ul.team-icon li {
+    display: inline-block;
+    margin: 0 3px;
+    transition: all 0.25s ease-in-out;
+}
+
+ul.team-icon li a {
+    margin: 0;
+    display: inline-block;
+    padding: 8px 8px;
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+    line-height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    color: #fff;
+}
+
+ul.team-icon li a.twitter {
+    background-color: #4099ff;
+}
+
+ul.team-icon li a.facebook {
+    background-color: #005198;
+}
+
+ul.team-icon li a.linkedin {
+    background-color: #0a63bc;
+}
+
+.team-icon li a:hover{
+    color: #dedede;
+    transition: all 0.25s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+    .section-white {
+      padding: 60px 0;
+    }
+  
+    .team-item {
+      width: 17rem;
+      padding: 30px 15px;
+      transition: 0.5s all;
+    }
+}
+
+@media (max-width: 991px) {
+    .section-white {
+      padding: 50px 0;
+    }
+  
+    .team-item {
+      width: 18rem;
+      padding: 70px 15px;
+      transition: 0.5s all;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-white {
+      padding: 50px 0;
+    }
+  
+    .team-item {
+      width: 20rem;
+      margin-left: 6rem;
+      padding: 30px 15px;
+      transition: 0.5s all;
+    }
+}
+
+@media (max-width: 570px) {
+    .section-white {
+      padding: 50px 0;
+    }
+  
+    .team-item {
+      width: 16rem;
+      margin-left: 6rem;
+      padding: 30px 15px;
+      transition: 0.5s all;
+    }
+}
