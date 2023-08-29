@@ -18,7 +18,7 @@ export const Administrator = () => {
       .then((loquerecibo) => setMenus(loquerecibo));
   }, []);
 
-  const deleteCurso = async (id) => {
+  const deleteMenu = async (id) => {
     const resp = await axios.delete(
       `${import.meta.env.VITE_SERVER_URI}/api/delete-menu/${id}`,
       {
@@ -29,11 +29,11 @@ export const Administrator = () => {
 
     if (status === 200) {
       const deleteMenuOnRender = menu.filter((menu) => menu.id !== id);
-      setCursos(deleteMenuOnRender);
+      setMenus(deleteMenuOnRender);
     }
   };
 
-  const updateCurso = async (menu) => {
+  const updateMenu = async (menu) => {
     const { id, name, description, price } = menu;
 
     const resp = await axios.put(

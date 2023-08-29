@@ -21,56 +21,56 @@
           "id": 1,
           "name": "Café Americano",
           "description": "Café negro simple",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/coffe-american.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/coffe-american.png",
           "price": 2.5
         },
         {
           "id": 2,
           "name": "Café con Leche",
           "description": "Café con leche caliente",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/coffe-milk.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/coffe-milk.png",
           "price": 3.0
         },
         {
           "id": 3,
           "name": "Té",
           "description": "Infusión de té",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/te.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/te.png",
           "price": 2.0
         },
         {
           "id": 4,
           "name": "Café Expreso",
           "description": "Café corto y concentrado",
-		  "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/cafe-expreso.png",
+		    "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/cafe-expreso.png",
           "price": 2.0
         },
         {
           "id": 5,
           "name": "Café Mocha",
           "description": "Café con chocolate y leche",
-		  "imagen":"https://github.com/Vylzark/CafecitoPF/blob/augusto/src/Coffe-img/latte-coffee.jpg?raw=true",
+		    "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/coffe-mocha.png",
           "price": 3.5
         },
         {
           "id": 6,
           "name": "Cappuccino",
           "description": "Café con leche y espuma de leche",
-		  "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/Cafe-capuccino.png",
+		      "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/Cafe-capuccino.png",
           "price": 3.0
         },
         {
           "id": 7,
           "name": "Chocolate Caliente",
           "description": "Bebida caliente de chocolate",
-		  "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/chocolate-caliente.png",
+		  "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/chocolate-caliente.png",
           "price": 3.0
         },
         {
           "id": 8,
           "name": "Café Frappé",
           "description": "Café helado mezclado con hielo y leche",
-		  "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/cafe-frappe.png",
+		    "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/cafe-frappe.png",
           "price": 4.0
         }
       ]
@@ -82,21 +82,21 @@
           "id": 9,
           "name": "Sándwich de Pollo",
           "description": "Sándwich con pollo y vegetales",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/sandwich-pollo.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/sandwich-pollo.png",
           "price": 5.5
         },
         {
           "id": 10,
           "name": "Ensalada César",
           "description": "Ensalada con pollo, lechuga y aderezo César",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/ensalada-cesar.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/ensalada-cesar.png",
           "price": 4.5
         },
         {
           "id": 11,
           "name": "Tostado de Jamón y Queso",
           "description": "Tostado con jamón y queso derretido",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/sandwich-jamon-queso.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/sandwich-jamon-queso.png",
           "price": 6.0
         }
       ]
@@ -108,21 +108,21 @@
           "id": 12,
           "name": "Tarta de Chocolate",
           "description": "Tarta de chocolate con ganache",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/torta-choco.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/torta-choco.png",
           "price": 4.0
         },
         {
           "id": 13,
           "name": "Pastel de Zanahoria",
           "description": "Pastel con zanahoria y crema de queso",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/pastel-zanhoria.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/pastel-zanhoria.png",
           "price": 3.5
         },
         {
           "id": 14,
           "name": "Galletas Caseras",
           "description": "Galletas caseras de avena y pasas",
-          "imagen":"https://raw.githubusercontent.com/Vylzark/CafecitoPF/augusto/src/Coffe-img/galletas-avena-y-pasas.png",
+          "imagen":"https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/galletas-avena-y-pasas.png",
           "price": 2.0
         }
       ]
