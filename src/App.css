@@ -21,20 +21,6 @@
 	text-align: center;
 	padding: 0%;
 }
-.nav-size{
-	height: 8rem !important;
-}
-.logo{
-	width: 45% ;
-	height: auto;
-	margin: none;
-	display: block;
-	object-fit: cover;
-}
-.palabras{
-	padding-right: 13rem;
-	padding-top: 0.3rem;
-}
 .img-home {
 	position: relative;
 	top: -75px;
@@ -58,84 +44,9 @@
 	align-items: center;
 	padding-top: 4rem;
 }
-nav a {
-	color: white;
-	padding: 0.2rem 2rem 0.2rem 1rem;
-	text-decoration: none;
-	white-space: nowrap;
-}
-nav a.active {
-	color: #bc9667;
-	font-weight: bolder;
-}
 
-.dropdown a {
-	color: black;
-	display: block;
-}
-
-.dropdown div {
-	width: 230px;
-}
-
-#cards {
-	gap: 1rem;
-}
-
-.img-wrapper {
-	height: 200px;
-	overflow: hidden;
-}
-
-#descriptione.card-text {
-	height: 120px;
-}
-
-#admin form div {
-	margin-bottom: 1rem;
-}
-
-#admin form div input,
-#admin form div textarea {
-	width: 700px;
-	padding: 5px;
-	border-radius: 5px;
-}
-
-#admin form div label {
-	margin-right: 1rem;
-	width: 120px;
-}
-
-input.error {
-	border: 1px solid red;
-	background-color: #ffaaaa;
-}
-
-.errorMessage {
-	color: red;
-	padding-top: 5px;
-}
-
-/*---------------RESPONSIVE-----------------*/
-
-/* Estilos para medidas mayor o iguales a 1440px y menor a 1024px */
 @media screen and (min-width: 1023px) and (max-width: 1440px) {
-	.nav-size {
-	  height: 10rem !important;
-	}
-  
-	.logo {
-	  width: 56% !important;
-	}
-  
-	.palabras {
-	  padding-right: 15rem;
-	  padding-top: 1rem;
-	}
-  
 
-  
 	.home-container {
 	  margin-top: 150px;
 	}
@@ -155,24 +66,6 @@ input.error {
 
   /* Estilos para medidas mayores o iguales a 768px y menores o iguales a 1024px */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-	.nav-size {
-	  height: 7rem !important;
-	}
-  
-	.logo {
-	  width: 90%;
-	}
-  
-	.fs-4 {
-		font-size: 2rem;
-		margin-left: -10px;
-	  }
-
-	.palabras {
-	  padding-right: 8rem;
-	  padding-top: 0.4rem;
-	}
-  
 	.main-container {
 	  grid-template-columns: repeat(auto-fit, minmax(18rem, auto));
 	  padding-top: 5rem;
@@ -197,20 +90,6 @@ input.error {
 
   /* Estilos para medidas menores o iguales a 767px */
   @media screen and (max-width: 767px) {
-	.nav-size {
-	  height: 10rem !important;
-	}
-  
-	.logo {
-	  width: 70%;
-	}
-  
-	.palabras {
-	  padding-right: 3rem;	
-	  padding-top: 1rem;
-	  text-align: center;
-	}
-  
 	.main-container {
 	  grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
 	  padding-top: 3rem;
@@ -224,15 +103,6 @@ input.error {
 	  padding-right: 0;
 	}
   
-	nav a {
-	  display: block;
-	  padding: 0.5rem 2rem;
-	}
-  
-	.fs-4 {
-	  font-size: 1.2rem;
-	}
-  
 	.home-container {
 	  margin-top: 70px;
 	}
@@ -240,17 +110,7 @@ input.error {
 	.home-container h1 {
 	  font-size: 1.8rem;
 	}
-  
-	.fs-4 {
-	  font-size: 1rem;
-	  margin-left: -85px;
-	  margin-bottom: 10px;
-	}
-	
-	.fs-4 + .fs-4 {
-	  margin-top: -1rem;
-	}
-	
+
 	.logo {
 	  width: 80%;
 	   
