@@ -28,16 +28,6 @@ export const Home = () => {
               <img src={main} alt="portada1" className="img-fluid img-home"/>
             </div>
         </div>
-        <div className="row">
-          <div className="col-8 offset-2 parrafito text-grey">
-            <p>
-              <b>1234 Elm Street<br/>
-              Anytown, NY 10001<br/>
-              United States
-            </b>
-            </p>
-          </div>
-        </div>
       </div>
     </Container>
   );

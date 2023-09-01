@@ -4,7 +4,6 @@ import "../../css/aboutus.css";
 import a1 from "../../Coffe-img/a1.jpg";
 import l1 from "../../Coffe-img/l1.jpg";
 import e1 from "../../Coffe-img/e1.jpg";
-import g1 from "../../Coffe-img/g1.jpg";
 
 export const About = () => {
   const teamMembers = [
@@ -25,12 +24,6 @@ export const About = () => {
       role: "Developer Full Stack",
       info: "24 años, Web Programming Student.",
       image: e1,
-    },
-    {
-      name: "Gerardo Hamid",
-      role: "Developer Full Stack",
-      info: "23 años, Web Programming Student.",
-      image: g1,
     },
   ];
 
