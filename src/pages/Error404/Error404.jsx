@@ -4,13 +4,6 @@ import "../../css/error404.css";
 export const Error404 = () => {
   return (
     <>
-      <style>
-        {`
-          .navbar {
-            display: none;
-          }
-        `}
-      </style>
       <section className="page_404">
         <div className="container">
           <div className="row">

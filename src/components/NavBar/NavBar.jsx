@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "../../css/navBar.css";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../../Coffe-img/logo.png"
 
 export const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,7 +10,9 @@ export const NavBar = () => {
   return (
     <nav>
       <Link to="/" className="title">
-	   <h3 className="titleh3"><span>Tu</span>Café</h3>
+	    <div>
+      <img src={logo} alt="portada1" className="logo"/>
+      </div>
       </Link>
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>

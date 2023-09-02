@@ -6,6 +6,7 @@ import { NavBar } from "./components/NavBar"
 import { Router } from "./router"
 import { Footer } from "./components/Footer"
 
+
 export const App = () => {
   return (
     <BrowserRouter>

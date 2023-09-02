@@ -1,28 +1,27 @@
 .active{
-    background-color: #613c24;
+    background-color: #b8733a;
 }
 
 nav {
     display: flex;
-    height: 7rem;
     justify-content: space-between;
     align-items: center;
     background-color: #372214;
     color: white;
     top: 0;
-    font-family: 'Poppins', sans-serif;
 }
 
 nav .title {
-    font-size: 2.4rem;
+    font-size: 1.5rem;
     margin: 1rem;
     font-weight: bold;
     text-decoration: none;
     color: white;
 }
 
-.titleh3 {
-    padding-left: 1rem;
+.logo {
+    max-width: 7.5rem;
+    margin-left: 1.5rem;
 }
 
 nav ul {
@@ -31,8 +30,6 @@ nav ul {
 
 nav ul li {
    list-style: none; 
-   padding-right: 0.1rem;
-   font-size: 1.4rem;
 }
 
 nav ul li a {
@@ -67,9 +64,13 @@ nav .menu span {
 }
 
 
-@media (max-width: 540px) {
+@media (max-width: 480px) {
     nav .menu {
         display: flex;
+    }
+
+    .logo {
+        margin-left: 1rem;
     }
 
     nav {
@@ -82,6 +83,7 @@ nav .menu span {
         flex-direction: column;
         width: 100%;
         margin-bottom: 0.25rem;
+        background-color: #372214;
     }
 
     nav ul.open {
