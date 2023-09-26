@@ -39,62 +39,72 @@
     "name": "Cappuccino",
     "description": "Café con leche y espuma de leche",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/Cafe-capuccino.png",
-    "price": 3.0
+    "price": 3.0,
+    "quanty": 1
   },
   {
     "id": 7,
     "name": "Chocolate Caliente",
     "description": "Bebida caliente de chocolate",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/chocolate-caliente.png",
-    "price": 3.0
+    "price": 3.0,
+    "quanty": 1
+    
   },
   {
     "id": 8,
     "name": "Café Frappé",
     "description": "Café helado mezclado con hielo y leche",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/cafe-frappe.png",
-    "price": 4.0
+    "price": 4.0,
+    "quanty": 1
   },
   {
     "id": 9,
     "name": "Sándwich de Pollo",
     "description": "Sándwich con pollo y vegetales",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/sandwich-pollo.png",
-    "price": 5.5
+    "price": 5.5,
+    "quanty": 1
   },
   {
     "id": 10,
     "name": "Ensalada César",
     "description": "Ensalada con pollo, lechuga y aderezo César",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/ensalada-cesar.png",
-    "price": 4.5
+    "price": 4.5,
+    "quanty": 1
   },
   {
     "id": 11,
     "name": "Tostado de Jamón y Queso",
     "description": "Tostado con jamón y queso derretido",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/sandwich-jamon-queso.png",
-    "price": 6.0
+    "price": 6.0,
+    "quanty": 1
   },
   {
     "id": 12,
     "name": "Tarta de Chocolate",
     "description": "Tarta de chocolate con ganache",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/torta-choco.png",
-    "price": 4.0
+    "price": 4.0,
+    "quanty": 1
   },
   {
     "id": 13,
     "name": "Pastel de Zanahoria",
     "description": "Pastel con zanahoria y crema de queso",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/pastel-zanhoria.png",
-    "price": 3.5
+    "price": 3.5,
+    "quanty": 1
   },
   {
     "id": 14,
     "name": "Galletas Caseras",
     "description": "Galletas caseras de avena y pasas",
     "imagen": "https://raw.githubusercontent.com/EzeMoreira/Proyecto-Final-Frontend/Images/src/Coffe-img/galletas-avena-y-pasas.png",
-    "price": 2.0
+    "price": 2.0,
+    "quanty": 1
   }
 ]

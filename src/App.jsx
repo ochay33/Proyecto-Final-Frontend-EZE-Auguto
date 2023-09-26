@@ -5,15 +5,18 @@ import "./App.css"
 import { NavBar } from "./components/NavBar"
 import { Router } from "./router"
 import { Footer } from "./components/Footer"
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <NavBar/>
-      <Router/>
-      <Footer/>
-    </BrowserRouter>
+    <ShoppingCartProvider>
+     <BrowserRouter>
+       <NavBar/>
+       <Router/>
+       <Footer/>
+     </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 

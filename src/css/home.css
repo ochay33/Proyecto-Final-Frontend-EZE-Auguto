@@ -13,4 +13,11 @@
  .text-grey{
     color:grey;
     margin-top: 20px;
- }
+}
+
+.button1 {
+   width: 10rem;
+   border-style: none;
+   background-color: #b8733a;
+   color: white;
+}
