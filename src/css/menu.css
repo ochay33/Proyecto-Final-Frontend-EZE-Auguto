@@ -1,9 +1,14 @@
-
 .title {
     display: flex;
     justify-content: center;
     margin-top: 5rem;
-	margin-bottom: 3rem;
+}
+
+.title2 {
+	font-size: 0.9rem;
+	display: flex;
+    justify-content: center;
+	margin-bottom: 3.5rem;
 }
 
 /* Main */
@@ -54,6 +59,15 @@
 	font-weight: 900;
 }
 
+.item-quantity {
+	color: #fff;
+	background-color: #f0ad4e;
+	display: flex;
+	justify-content: center;
+	max-width: 100%;
+	position: relative;
+  }
+
 .info-product button {
 	border: none;
 	background: none;
@@ -61,6 +75,15 @@
 	color: #fff;
 	padding: 15px 10px;
 	cursor: pointer;
+}
+
+/****** Shopping Cart ********/
+
+.cart-container {
+	display: flex;
+	justify-content: center;
+	margin: 3rem;
+	font-size: 1.5rem;
 }
 
 @media (max-width: 1450px) {

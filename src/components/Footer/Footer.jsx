@@ -33,7 +33,7 @@ export const Footer = () => {
                             <h5>Quick Links</h5>
                             <p><i class="fa-solid fa-phone-volume"></i> +54 381######</p>
                             <p><i class="fa-solid fa-envelope"></i> tucafe@gmail.com</p>
-                            <p><i class="fa-solid fa-paper-plane"></i> Tucuman, Argentina.</p>
+                            <p><i class="fa-solid fa-paper-plane"></i> Tucumán, Argentina.</p>
                         </div>
                     </div>
                 </div>

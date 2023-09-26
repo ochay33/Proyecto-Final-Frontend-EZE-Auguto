@@ -20,8 +20,8 @@ export const Home = () => {
               Captivating aromas, exceptional flavors, and unsurpassed quality.<br/> 
               Discover pleasure in every cup.
             </p>
-            <Link to="/registro" className="btn btn-warning  mt-4">
-              Create your acount
+            <Link className="btn btn-warning  mt-4">
+             Create your acount
             </Link>
           </div>
             <div className="col-md-5">

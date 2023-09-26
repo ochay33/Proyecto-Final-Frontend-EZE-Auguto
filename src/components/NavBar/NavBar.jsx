@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
-import "../../css/navBar.css";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../Coffe-img/logo.png"
+
+import logo from "../../Coffe-img/logo.png";
+import "../../css/navBar.css";
 
 export const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,9 +10,9 @@ export const NavBar = () => {
   return (
     <nav>
       <Link to="/" className="title">
-	    <div>
-      <img src={logo} alt="portada1" className="logo"/>
-      </div>
+        <div>
+          <img src={logo} alt="portada1" className="logo" />
+        </div>
       </Link>
       <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
@@ -20,17 +20,14 @@ export const NavBar = () => {
         <span></span>
       </div>
       <ul className={menuOpen ? "open" : ""}>
-	    <li>
+        <li>
           <NavLink to="/menu">Menu</NavLink>
-        </li>
-		<li>
-          <NavLink to="/login">Login</NavLink>
         </li>
         <li>
           <NavLink to="/about">About</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/login">Log In</NavLink>
         </li>
       </ul>
     </nav>
