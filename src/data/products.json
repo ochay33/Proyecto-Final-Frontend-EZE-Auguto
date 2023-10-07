@@ -1,4 +1,19 @@
-[
+{
+  "usuarios": [
+      {
+          "id": 1,
+          "usuario": "augustogarcia@gmail.com",
+          "password": "soyderiver",
+          "role": "USER_ROLE"
+      },
+      {
+          "id": 2,
+          "usuario": "smoreira@gmail.com",
+          "password": "654321",
+          "role": "USER_ROLE"
+      }
+  ],
+  "menu": [
   {
     "id": 1,
     "name": "Café Americano",
@@ -101,3 +116,4 @@
     "price": 2.0
   }
 ]
+}

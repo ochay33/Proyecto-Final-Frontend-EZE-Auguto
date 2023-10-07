@@ -4,6 +4,7 @@ import "../../css/aboutus.css";
 import a1 from "../../Coffe-img/a1.jpg";
 import l1 from "../../Coffe-img/l1.jpg";
 import e1 from "../../Coffe-img/e1.jpg";
+import m1 from "../../Coffe-img/m1.jpg";
 
 export const About = () => {
   const teamMembers = [
@@ -25,6 +26,12 @@ export const About = () => {
       info: "24 años, Web Programming Student.",
       image: e1,
     },
+    {
+      name: "Matias Cordoba",
+      role: "Developer Full Stack",
+      info: "26 años, Web Programming Student.",
+      image: m1,
+    },
   ];
 
   return (
@@ -39,7 +46,7 @@ export const About = () => {
           </div>
           
           {teamMembers.map((member, index) => (
-            <div className="col-12 col-md-6 col-lg-4" key={index}>
+            <div className="col-12 col-md-6 col-lg-3" key={index}>
               <div className="team-item">
                 <img src={member.image} className="team" alt="pic" />
                 <h3>{member.name}</h3>
