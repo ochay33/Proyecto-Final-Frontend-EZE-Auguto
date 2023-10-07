@@ -6,7 +6,7 @@
 .team-item {
     background: #f1f1f1;
     text-align: center;
-    width: 80%;
+    width: 95%;
     height: 90%;
     margin: 20px;
     padding: 50px 20px 40px 20px;
@@ -128,7 +128,7 @@ ul.team-icon li a.linkedin {
     }
   
     .team-item {
-      width: 17rem;
+      width: 14rem;
       padding: 30px 15px;
       transition: 0.5s all;
     }
