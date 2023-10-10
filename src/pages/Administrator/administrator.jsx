@@ -6,8 +6,8 @@ const headers = {
 };
 
 export const Administrator = () => {
-  const [cursos, setMenus] = useState([]);
-  const [cursoEditable, setMenuEditable] = useState({});
+  const [menu, setMenus] = useState([]);
+  const [menuEditable, setMenuEditable] = useState({});
   const [showForm, setShowForm] = useState(false);
   const [createOrEdit, setCreateOrEdit] = useState("");
 
@@ -52,14 +52,14 @@ export const Administrator = () => {
     const { status } = resp;
 
     if (status === 200) {
-      const othersMenu = cursos.filter((prev) => prev.id !== menu.id);
+      const othersMenu = menu.filter((prev) => prev.id !== menu.id);
       setMenu([...othersMenu, menu]);
     }
     setShowForm(false);
   };
 
   const createMenu = async (curso) => {
-    const {  name, description, imagen, price } = curso;
+    const {  name, description, imagen, price } = menu;
 
     const resp = await axios.post(
       `${import.meta.env.VITE_SERVER_URI}/api/create-menu`,
@@ -115,11 +115,11 @@ export const Administrator = () => {
             </tr>
           </thead>
           <tbody>
-            {cursos.map((curso) => (
-              <tr key={curso.id}>
-                <th>{curso.title}</th>
-                <td>{curso.description}</td>
-                <td>{curso.price}</td>
+            {menu.map((menu) => (
+              <tr key={menu.id}>
+                <th>{menu.title}</th>
+                <td>{menu.description}</td>
+                <td>{menu.price}</td>
                 <td>
                   <button
                     className="btn btn-danger mr-2 mb-2"
