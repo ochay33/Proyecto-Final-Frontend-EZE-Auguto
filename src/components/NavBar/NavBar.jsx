@@ -26,9 +26,25 @@ export const NavBar = () => {
         <li>
           <NavLink to="/about">About</NavLink>
         </li>
-        <li>
-          <NavLink to="/login">Log In</NavLink>
-        </li>
+        {!localStorage.getItem("user") && (
+              <li>
+                <NavLink to="/login">Log In</NavLink>
+              </li>
+            )}
+        {localStorage.getItem("user") && (
+					<>
+						{localStorage.getItem("role") === "admin" && (
+              <li>
+								<NavLink to="/administrator">Admin</NavLink>
+              </li>
+						)}
+            <li>
+						<Button onClick={handleClick} variant="light">
+							Cerrar Sesion
+						</Button>
+            </li>
+					</>
+				)}
       </ul>
     </nav>
   );

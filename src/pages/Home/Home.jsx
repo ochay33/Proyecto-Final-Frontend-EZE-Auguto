@@ -20,9 +20,11 @@ export const Home = () => {
               Captivating aromas, exceptional flavors, and unsurpassed quality.<br/> 
               Discover pleasure in every cup.
             </p>
-            <NavLink to="/register" className="btn btn-warning  mt-4">
+            {!localStorage.getItem("user") && (
+              <NavLink to="/register" className="btn btn-warning  mt-4">
              Create your acount
             </NavLink>
+            )}
           </div>
             <div className="col-md-5">
               <img src={main} alt="portada1" className="img-fluid img-home"/>

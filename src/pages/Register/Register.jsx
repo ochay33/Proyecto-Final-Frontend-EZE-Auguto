@@ -47,7 +47,7 @@ export const Register = () => {
   const postUsuario = async () => {
     try {
       const resp = await axios.post(
-        `${import.meta.env.VITE_SERVER_URI}/api/create-user`,
+        `${import.meta.env.VITE_SERVER_URI}/api/register`,
         formik.values
       );
       const { status } = resp;
@@ -87,6 +87,7 @@ export const Register = () => {
                 }
                 maxLength={30}
                 minLength={6}
+                placeholder="Enter email"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 name="email"
@@ -105,6 +106,7 @@ export const Register = () => {
                 }
                 maxLength={20}
                 minLength={6}
+                placeholder="Choose a password"
                 type="password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
@@ -114,7 +116,7 @@ export const Register = () => {
                 <div className="errorMessage">{formik.errors.password}</div>
               )}
             </Form.Group>
-            <Form.Group className="content-form" controlId="formBasicPassword">
+            <Form.Group className="content-form" controlId="formBasicUser">
               <Form.Label>User</Form.Label>
               <Form.Control
                 name="username"
@@ -124,6 +126,7 @@ export const Register = () => {
                 type="text"
                 maxLength={20}
                 minLength={3}
+                placeholder="Choose a username"
                 value={formik.values.username}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -132,7 +135,7 @@ export const Register = () => {
                 <div className="errorMessage">{formik.errors.username}</div>
               )}
             </Form.Group>
-            <Form.Group className="content-form" controlId="formBasicPassword">
+            <Form.Group className="content-form" controlId="formBasicAddress">
               <Form.Label>Address</Form.Label>
               <Form.Control
                 name="address"
@@ -141,6 +144,7 @@ export const Register = () => {
                 }
                 maxLength={30}
                 minLength={6}
+                placeholder="Enter your address"
                 type="address"
                 value={formik.values.address}
                 onChange={formik.handleChange}
