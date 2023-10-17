@@ -1,0 +1,165 @@
+.thead-dark {
+  background-color: red;
+  color: black;
+}
+.letra_tabla {
+  border: 1px solid #ccc;
+  margin-right: 20px;
+}
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1admin {
+  padding: 2rem 0 2rem;
+  order: -1;
+}
+
+#labels {
+  display: flex;
+  align-items: center;
+  color: black;
+  width: auto !important;
+}
+
+.h3 {
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: center;
+}
+
+#responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#responsive-table th,
+#responsive-table td {
+  padding: 8px;
+  text-align: center;
+}
+#administrador {
+  display: none;
+}
+
+.responsive-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+label {
+  color: black;
+  font-weight: bold;
+  margin-right: 10px;
+  width: auto !important;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+
+.button-create {
+  margin: 1rem 0 4rem;
+  padding: 8px 20px;
+  background-color: #372214;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+h1 {
+  color: white;
+}
+#admin {
+  display: flex;
+  flex-wrap: wrap;
+  width: 150vh;
+}
+#botoncrear {
+  width: 100px;
+  margin-left: 50%;
+}
+form {
+  display: flex;
+}
+#th {
+  border: 1px solid #ccc;
+}
+#tbody {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 680px) {
+  #responsive-table th,
+  #responsive-table td {
+    display: grid;
+    max-width: 275px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 4px;
+  }
+  #botonEliminar {
+    width: 100%;
+  }
+  #botonEditar {
+    width: 100%;
+  }
+  #admin {
+    width: auto !important;
+  }
+  #thead {
+    display: none;
+  }
+  #administrador {
+    display: block;
+  }
+  #td {
+    display: flex !important;
+  }
+
+  #responsive-table th {
+    font-weight: bold;
+  }
+  #h1 {
+    display: none;
+  }
+
+  #responsive-table td:before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: bold;
+    width: 50%;
+    margin-right: 5px;
+  }
+
+  input,
+  textarea {
+    width: auto !important;
+  }
+}

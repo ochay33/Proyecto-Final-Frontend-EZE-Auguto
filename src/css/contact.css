@@ -1,0 +1,49 @@
+.img-prin{
+  width: 100%;
+}
+
+.container-cont {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.title-contact {
+  padding-top: 5rem;
+}
+
+.titleh2 {
+  font-size: 3rem;
+  color: #ffffff;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.content-info{
+  margin-left: 35rem;
+  margin-right: 35rem;
+  padding: 1rem 2rem 0 2rem;
+  border: 1px solid;
+  background-color: rgb(19, 19, 19);
+  opacity: .9;
+  color: rgb(255, 255, 255);
+}
+
+.imagen {
+  height: 10rem;
+}
+
+.divimagen {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+}
+.titleh2 {
+  text-align: center;
+}
+
+

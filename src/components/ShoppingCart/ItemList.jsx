@@ -1,15 +1,20 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { Item } from "./Item";
-import storeData from "../../data/products.json";
 import "../../css/home.css"
 
 export const ItemList = () => {
-  const menuItems = storeData.menu;
+  const [menuItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_SERVER_URI}/api/read-menues`)
+      .then((response) => response.json())
+      .then((loquerecibo) => setMenuItems(loquerecibo));
+  }, []);
 
   return (
     <>
-      <h1 className="title"> Menu </h1>
-      <h3 className="title2">To make your purchase, continue to the bottom</h3>
+      <h1 className="title-menu"> Menu </h1>
+      <h3 className="title2">To make your purchase, add the product to the shopping cart</h3>
       <div className="container-items">
         {menuItems.map((product) => (
           <Item key={product.id} {...product} />

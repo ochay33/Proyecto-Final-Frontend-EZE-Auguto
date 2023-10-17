@@ -5,6 +5,10 @@
  .home-container h1{
     line-height:1.5;
  }
+
+ .home-title{
+   color: #9e3b0d;
+ }
  
  .home-container img{
     width: 100%;

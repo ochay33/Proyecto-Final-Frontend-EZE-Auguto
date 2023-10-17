@@ -2,12 +2,14 @@ import { Home } from "../../pages/Home";
 import { IsLogged } from "../../components/IsLogged/IsLogged";
 import { IsAdmin } from "../../components/IsAdmin/IsAdmin";
 import { IsNotLogged } from "../../components/IsNotLogged/IsNotLogged";
+import { Contact } from "../../pages/Contact"
 import { Error404 } from "../../pages/Error404";
 import { About } from "../../pages/About";
 import { Administrator } from "../../pages/Administrator";
 import { Menu } from "../../pages/Menu";
 import { Login } from "../../pages/Login";
 import { Register } from "../../pages/Register";
+import { Carrito } from "../../pages/Carrito"
 
 export const routes = [
   {
@@ -19,6 +21,7 @@ export const routes = [
     ),
   },
   { path: "/about", element: <About /> },
+  { path: "/contact", element: <Contact /> },
   {
     path: "/Login",
     element: (
@@ -27,11 +30,19 @@ export const routes = [
       </IsLogged>
     ),
   },
+  { 
+		path : "/carrito" , 
+		element: (
+			<IsNotLogged>
+		        <Carrito /> 
+		    </IsNotLogged>
+		),
+	},
   {
     path: "/Menu",
     element: (
       <IsNotLogged>
-        <Menu />
+      <Menu /> 
       </IsNotLogged>
     ),
   },
