@@ -11,7 +11,7 @@ nav {
     top: 0;
 }
 
-nav .title {
+nav .title-nav {
     font-size: 1.5rem;
     margin: 1rem;
     font-weight: bold;
@@ -24,13 +24,28 @@ nav .title {
     margin-left: 1.5rem;
 }
 
+.bot {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.bot:not(.active):hover {
+    background-color:#613c24 ;
+}
+
+
 nav ul {
     display: flex;
 }
 
 nav ul li {
    list-style: none; 
-   font-size: 1.2rem;
+   font-size: 1.1rem;
 }
 
 nav ul li a {
@@ -72,13 +87,18 @@ nav .menu span {
     text-decoration: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 770px) {
     nav .menu {
         display: flex;
     }
 
     .logo {
         margin-left: 1rem;
+    }
+
+    .bot {
+        display: block;
+        flex-direction: column;
     }
 
     nav {

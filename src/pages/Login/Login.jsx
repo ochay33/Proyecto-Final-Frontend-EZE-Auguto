@@ -5,7 +5,6 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import swal from "sweetalert";
 import theme from "../../Coffe-img/theme.png";
 import "../../css/login.css";
 
@@ -51,7 +50,7 @@ export const Login = () => {
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("role", data.user.role);
         localStorage.setItem("token", data.token);
-        window.location.href = "/Home";
+        window.location.href = "/";
       })
       .catch((err) => {
         if (err.response && err.response.status === 401) {

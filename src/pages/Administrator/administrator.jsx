@@ -1,22 +1,24 @@
 import { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
 import axios from "axios";
+import Container from "react-bootstrap/Container";
 
-const headers = {
-  Authorization: "Bearer " + localStorage.getItem("token"),
-};
+import "../../css/administrator.css";
 
 export const Administrator = () => {
-  const [menu, setMenus] = useState([]);
+  const [menues, setMenues] = useState([]);
   const [menuEditable, setMenuEditable] = useState({});
   const [showForm, setShowForm] = useState(false);
+  const [showButtons, setShowButtons] = useState(true);
   const [createOrEdit, setCreateOrEdit] = useState("");
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_SERVER_URI}/api/read-menu`)
+    fetch(`${import.meta.env.VITE_SERVER_URI}/api/read-menues`)
       .then((response) => response.json())
-      .then((loquerecibo) => setMenus(loquerecibo));
+      .then((loquerecibo) => setMenues(loquerecibo));
   }, []);
+  const headers = {
+    Authorization: "Bearer " + localStorage.getItem("token"),
+  };
 
   const deleteMenu = async (id) => {
     const resp = await axios.delete(
@@ -28,13 +30,18 @@ export const Administrator = () => {
     const { status } = resp;
 
     if (status === 200) {
-      const deleteMenuOnRender = menu.filter((menu) => menu.id !== id);
-      setMenus(deleteMenuOnRender);
+      const deleteMenuOnRender = menues.filter((menu) => menu.id !== id);
+      setMenues(deleteMenuOnRender);
     }
   };
 
   const updateMenu = async (menu) => {
-    const { id, name, description, price } = menu;
+    const { name, description, id, price, imagen } = menu;
+
+    if (!name || !description || price === null || price === '' || !imagen) {
+      alert('Todos los campos son obligatorios. Por favor, llénelos todos.');
+      return;
+    }
 
     const resp = await axios.put(
       `${import.meta.env.VITE_SERVER_URI}/api/update-menu`,
@@ -43,6 +50,7 @@ export const Administrator = () => {
         modify: {
           name,
           description,
+          imagen,
           price,
         },
       },
@@ -53,14 +61,21 @@ export const Administrator = () => {
     const { status } = resp;
 
     if (status === 200) {
-      const othersMenu = menu.filter((prev) => prev.id !== menu.id);
-      setMenu([...othersMenu, menu]);
+      const othersMenues = menues.filter((prev) => prev.id !== menu.id);
+      setMenues([...othersMenues, menues]);
     }
+
     setShowForm(false);
+    setShowButtons(true);
   };
 
-  const createMenu = async (curso) => {
-    const {  name, description, imagen, price } = menu;
+  const createMenu = async (menu) => {
+    const { name, description, price, imagen } = menu;
+
+    if (!name || !description || price === null || price === '' || !imagen) {
+      alert('All fields are required. Please fill them all out.');
+      return;
+    }
 
     const resp = await axios.post(
       `${import.meta.env.VITE_SERVER_URI}/api/create-menu`,
@@ -68,7 +83,7 @@ export const Administrator = () => {
         name,
         description,
         imagen,
-        price
+        price,
       },
       {
         headers: { ...headers, accept: "application/json" },
@@ -77,15 +92,17 @@ export const Administrator = () => {
     const { status } = resp;
 
     if (status === 201) {
-      const othersMenu = menu.filter((prev) => prev.id !== menu.id);
-      setMenu([...othersMenu, menu]);
+      const othersMenues = menues.filter((prev) => prev.id !== menu.id);
+      setMenues([...othersMenues, menu]);
     }
+
     setShowForm(false);
+    setShowButtons(true);
   };
 
-  const handleDelete = (id, title) => {
+  const handleDelete = (id, name) => {
     let validator = window.confirm(
-      `Está seguro que quiere eliminar el menu ${title}?`
+      `Are you sure you want to delete the menu ${name}?`
     );
     if (validator) deleteMenu(id);
   };
@@ -94,45 +111,62 @@ export const Administrator = () => {
     setShowForm(true);
     setMenuEditable(menu);
     setCreateOrEdit("edit");
+    setShowButtons(false);
   };
 
   const handleCreate = () => {
     setShowForm(true);
     setMenuEditable({});
     setCreateOrEdit("create");
+    setShowButtons(false);
   };
-
   return (
-    <Container className="mt-4" id="admin">
-      <h1>Admin</h1>
+    <Container id="admin" className="admin-container">
+      <h1 className="h1admin">Admin</h1>
       {!showForm && (
-        <table className="table">
+        <table id="responsive-table" className="table">
           <thead className="thead-dark">
-            <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Description</th>
-              <th scope="col">Price</th>
-              <th scope="col"></th>
+            <tr id="thead">
+              <th id="th" scope="col">
+                Name
+              </th>
+              <th id="th" scope="col">
+                Description
+              </th>
+              <th id="th" scope="col">
+                Price
+              </th>
+              <th id="th" scope="col">
+                Bottons
+              </th>
             </tr>
           </thead>
-          <tbody>
-            {menu.map((menu) => (
+          <tbody id="tbody">
+            {menues.map((menu) => (
               <tr key={menu.id}>
-                <th>{menu.title}</th>
-                <td>{menu.description}</td>
-                <td>{menu.price}</td>
+                <td id="td" data-label="Name:" className="letra_tabla">
+                  {menu.name}
+                </td>
+                <td id="td" data-label="Description:" className="letra_tabla">
+                  {menu.description}
+                </td>
+                <td id="td" data-label="Price:" className="letra_tabla">
+                  {menu.price}
+                </td>
                 <td>
                   <button
+                    id="botonEliminar"
                     className="btn btn-danger mr-2 mb-2"
-                    onClick={() => handleDelete(menu.id, menu.title)}
+                    onClick={() => handleDelete(menu.id, menu.name)}
                   >
-                    Eliminar
+                    Delete
                   </button>
                   <button
+                    id="botonEditar"
                     className="btn btn-warning mr-2 mb-2 "
                     onClick={() => handleEdit(menu)}
                   >
-                    Editar
+                    Edit
                   </button>
                 </td>
               </tr>
@@ -140,65 +174,113 @@ export const Administrator = () => {
           </tbody>
         </table>
       )}
-      <button onClick={handleCreate}>Crear nuevo</button>
+      {showButtons && (
+        <button className="button-create" onClick={handleCreate}>
+          Create a new
+        </button>
+      )}
       {showForm && (
-        <form>
-          <div>
-            <label>Títle</label>
-            <input
-              type="text"
-              value={menuEditable.name}
-              onChange={(event) =>
-                setMenuEditable((prev) => {
-                  return { ...prev, name: event.target.value };
-                })
-              }
-            />
+        <form className="responsive-form">
+          <div className="form-group">
+            <label className="labes">
+              <h3 className="h3">Name</h3>
+              <input
+               required
+                type="text"
+                value={menuEditable.name}
+                onChange={(event) =>
+                  setMenuEditable((prev) => {
+                    return { ...prev, name: event.target.value };
+                  })
+                }
+              />
+            </label>
           </div>
-          <div>
-            <label>Desc</label>
-            <textarea
-              value={menuEditable.description}
-              onChange={(event) =>
-                setMenuEditable((prev) => {
-                  return { ...prev, description: event.target.value };
-                })
-              }
-            ></textarea>
+          <div className="form-group">
+            <label className="labes">
+              <h4 className="h3">Description</h4>
+              <textarea
+                required
+                value={menuEditable.description}
+                onChange={(event) =>
+                  setMenuEditable((prev) => {
+                    return { ...prev, description: event.target.value };
+                  })
+                }
+              ></textarea>
+            </label>
           </div>
-          <div>
-            <label>Image</label>
-            <input
-              type="text"
-              value={menuEditable.imagen}
-              onChange={(event) =>
-                setMenuEditable((prev) => {
-                  return { ...prev, imagen: event.target.value };
-                })
-              }
-            />
+          <div className="form-group">
+            <label className="labes">
+              <h3 className="h3">Price</h3>
+              <input
+               required
+                type="number"
+                value={menuEditable.price}
+                onChange={(event) =>
+                  setMenuEditable((prev) => {
+                    return { ...prev, price: event.target.value };
+                  })
+                }
+              ></input>
+            </label>
           </div>
-          <div>
-            <label>Price</label>
-            <input
-              type="text"
-              value={menuEditable.price}
-              onChange={(event) =>
-                setMenuEditable((prev) => {
-                  return { ...prev, price: event.target.value };
-                })
-              }
-            />
+          <div className="form-group">
+            <label className="labes">
+              <h3 className="h3">Image</h3>
+              <input
+                required
+                type="text"
+                value={menuEditable.imagen}
+                onChange={(event) =>
+                  setMenuEditable((prev) => {
+                    return { ...prev, imagen: event.target.value };
+                  })
+                }
+              />
+            </label>
           </div>
           {createOrEdit === "edit" && (
-            <button type="button" onClick={() => updateMenu(menuEditable)}>
-              Editar
-            </button>
+            <>
+            <button
+                id="botoncrear"
+                type="button"
+                onClick={() => {
+                  setShowForm(false);
+                  setShowButtons(true);
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                id="botoncrear"
+                type="button"
+                onClick={() => updateMenu(menuEditable)}
+              >
+                Edit
+              </button>
+            </>
           )}
           {createOrEdit === "create" && (
-            <button type="button" onClick={() => createMenu(menuEditable)}>
-              Crear
-            </button>
+            <>
+              <button
+                id="botoncrear"
+                type="button"
+                onClick={() => {
+                  setShowForm(false);
+                  setShowButtons(true);
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                id="botoncrear"
+                type="button"
+                onClick={() => createMenu(menuEditable)}
+              >
+                Create
+              </button>
+            </>
           )}
         </form>
       )}

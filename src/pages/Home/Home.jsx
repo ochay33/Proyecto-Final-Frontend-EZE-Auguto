@@ -9,7 +9,7 @@ export const Home = () => {
       <div>
         <div className="row flex-md-row-reverse">
           <div className="color col-md-6">
-            <h1 className="font-weight-bold">
+            <h1 className="home-title">
               Start your day
               <br />
               with coffee
