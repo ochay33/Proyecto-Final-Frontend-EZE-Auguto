@@ -16,12 +16,12 @@ export const Orders = () => {
 	const handleSendOrder = async (orderId) => {
 		try {
 			const resp = await axios.put(
-				`${import.meta.env.VITE_SERVER_URI}/api/update-order/${orderId}/Send`
+				`${import.meta.env.VITE_SERVER_URI}/api/update-order/${orderId}/send`
 			);
 	
 			if (resp.status === 200) {
 				const updatedOrders = orders.map((order) =>
-					order._id === orderId ? { ...order , estado: "sent" } : order
+					order._id === orderId ? { ...order , state: "sent" } : order
 				);
 				setOrders(updatedOrders);
 			}
@@ -49,7 +49,7 @@ export const Orders = () => {
 				  Authorization: "Bearer " + localStorage.getItem("token"),
 				},
 			  });
-			  const ordersToKeep = orders.filter((order) => order.estado !== "sent");
+			  const ordersToKeep = orders.filter((order) => order.state !== "sent");
 			  setOrders(ordersToKeep);  
 			} catch (error) {
 			  console.error("Error al eliminar órdenes: ", error);
@@ -68,7 +68,8 @@ export const Orders = () => {
 							<th className="th" scope="col">Options</th>
 						</tr>
 					</thead>
-					<tbody className="tbody">{orders.map((order) => (
+					<tbody className="tbody">{orders.filter((order) => order.state === "process")
+                    .map((order) => (
                         <tr key={order._id}>
                             <td className="letra_tabla" data-label="Datos del Cliente:"> 
                                     <p className="pDatosdel cliente"><b>*Name:</b> {order.datos.name}</p>
@@ -109,7 +110,7 @@ export const Orders = () => {
 							<th className="th" scope="col">Total</th>
 						</tr>
 					</thead>
-					<tbody className="tbody">{orders.filter((order) => order.estado === "sent")
+					<tbody className="tbody">{orders.filter((order) => order.state === "sent")
                     .map((order) => (
                         <tr key={order._id}>
                             <td className="letra_tabla" data-label="Datos del Cliente:"> 
@@ -134,7 +135,7 @@ export const Orders = () => {
                         <tr>
 							<td className="td"></td>
 							<td className="td"></td>
-							<td className="td">{orders .filter((order) => order.estado === "sent")
+							<td className="td">{orders .filter((order) => order.state === "sent")
                                 .reduce((total, order) => total + order.total, 0)}
 							</td>
                         </tr>
