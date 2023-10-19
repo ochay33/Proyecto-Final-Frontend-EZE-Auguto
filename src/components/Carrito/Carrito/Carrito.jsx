@@ -236,12 +236,12 @@ export const Carrito = () => {
     </Form>
         <Modal show={showModal} onHide={() =>setShowModal(false)}>
             <Modal.Header closeButton>
-              <Modal.Title>Detalles de la Orden</Modal.Title>
+              <Modal.Title>Order Detail</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <p>¡Pedido Realizado Exitosamente!</p>
-              <p>Demora aproximada 30 minutos</p>
-              <p>ID de la Orden: {orderInfo.orderId}</p>
+              <p>Order Successfully Placed</p>
+              <p>Approximate delay 25 minutes</p>
+              <p>order ID: {orderInfo.orderId}</p>
             </Modal.Body>
         </Modal>
         </>
