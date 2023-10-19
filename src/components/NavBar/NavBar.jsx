@@ -1,13 +1,12 @@
 import { useState, useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { DataContext } from "../DataContext/DataContext";
-import CartIcon from "../CartIcon/CartIcon";
+import CartIcon from "../Carrito/CartIcon/CartIcon";
 import logo from "../../Coffe-img/logo.png";
 import "../../css/navBar.css";
 
 export const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [cartItems] = useState([]);
 	const {cart} = useContext(DataContext)
 
   const handleClick = () => {
@@ -19,7 +18,7 @@ export const NavBar = () => {
     }
   };
 
-  const cartItemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <nav>
@@ -35,7 +34,7 @@ export const NavBar = () => {
       </div>
       <ul className={menuOpen ? "open" : ""}>
         <li>
-          <NavLink to="/menu">Menu</NavLink>
+          <NavLink to="/Menu">Menu</NavLink>
         </li>
         <li>
           <NavLink to="/about">About</NavLink>
@@ -55,6 +54,16 @@ export const NavBar = () => {
                 <NavLink to="/administrator">Admin</NavLink>
               </li>
             )}
+            {localStorage.getItem("role") === "admin" && (
+							<li>
+								<NavLink to="/Users">Users</NavLink>
+							</li>
+						)}
+            {localStorage.getItem("role") === "admin" && (
+							<li>
+								<NavLink to="/orders">Pedidos</NavLink>
+							</li>
+						)}
             <li>
 								<NavLink to="/carrito"><CartIcon itemCount={cartItemCount}/>{cart.length}</NavLink>
 						</li>

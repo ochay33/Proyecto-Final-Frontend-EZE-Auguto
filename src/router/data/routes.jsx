@@ -9,7 +9,9 @@ import { Administrator } from "../../pages/Administrator";
 import { Menu } from "../../pages/Menu";
 import { Login } from "../../pages/Login";
 import { Register } from "../../pages/Register";
-import { Carrito } from "../../pages/Carrito"
+import { Carrito } from "../../components/Carrito/Carrito/Carrito"
+import { Users } from "../../pages/Users/Users";
+import { Orders } from "../../pages/Orders";
 
 export const routes = [
   {
@@ -31,11 +33,11 @@ export const routes = [
     ),
   },
   { 
-		path : "/carrito" , 
+		path : "/Carrito" , 
 		element: (
 			<IsNotLogged>
 		        <Carrito /> 
-		    </IsNotLogged>
+		  </IsNotLogged>
 		),
 	},
   {
@@ -55,6 +57,22 @@ export const routes = [
     ),
   },
   { path: "*", element: <Error404 /> },
+  {
+		path:"/Users" ,
+		element : (
+			<IsAdmin>
+				<Users />
+			</IsAdmin>
+		),
+	},
+  { 
+		path : "/Orders", 
+		element: (
+		    <IsAdmin>
+		        <Orders />
+		    </IsAdmin>
+		),
+	},
   {
     path: "/administrator",
     element: (

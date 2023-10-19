@@ -1,125 +1,99 @@
 import { useContext } from "react";
 import { useState} from "react";
-import { DataContext } from "../../components/DataContext/DataContext";
+import { DataContext } from "../../DataContext/DataContext";
 import Table from "react-bootstrap/Table"
 import React from "react";
 import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { useData } from "../../components/DataContext/DataContext";
 import Modal from "react-bootstrap/Modal";
-import "../../css/carrito.css"
+import axios from "axios";
 
 
+import "../../../css/carrito.css"
 
-export const Carrito= () => {
+export const Carrito = () => {
 	const { cart, setCart } = useContext(DataContext);
-  const [showDiv, setShowDiv] = useState(false);
   const [showDiv2, setShowDiv2] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [orderInfo, setOrderInfo] = useState({
+    orderId: "",
+    orderStatus: ""
+  });
   
   const validationSchema = () =>
 	    Yup.object().shape({
 		    name: Yup.string()
-			    .required("* Obligatory field")
-			    .min(3,  "Name must be at least 3 characters")
-          .max(30, "The Name must have a maximum of 30 characters"),
+			    .required("* Campo obligatorio")
+			    .min(3, "El Nombre debe tener al menos 3 caracteres")
+          .max(30, "El Nombre debe tener un maximo de  30 caracteres"),
 		    phone: Yup.string()
-		      .required("* Obligatory field")
-		      .min(7, "The phone number must have at least 7 characters")
-          .max(25, "The telephone number must have a maximum of 25 characters"),
-        address: Yup.string()
-          .required("* Obligatory field")
-          .min(6, "The address must be at least 6 characters")
-          .max(40, "The Address must have a maximum of 40 characters"),
+		      .required("* Campo obligatorio")
+		      .min(7, "El Telefono debe tener al menos 7 caracteres")
+          .max(25, "El Telefono debe tener un maximo de 25 caracteres"),
         checkbox: Yup.string()
-          .required("* Obligatory field")
-             
+          .required("* Campo obligatorio")     
     })
+
+  const postUsuario = async () => {
+      const order = {
+        datos: formik.values,
+        items: cart,
+        cantidad: cart.cantidad,
+        total: total(),
+}
+
+  try {
+    const resp = await axios.post(
+      `${import.meta.env.VITE_SERVER_URI}/api/create-Orders`,
+      order
+    );
+
+  const { status, data } = resp;
+
+  if (status === 201) {
+    setOrderInfo({
+      orderId: data.id,
+      orderStatus: data.estado,
+    });
+    setShowModal(true);
+    clearCart();
+    formik.resetForm();
+  }
+} catch (error) {
+  console.error("Error:", error);
+}
+};
 
   const total = () =>
     cart.reduce((acumulador, valorActual) => {
       const cantidad = valorActual.cantidad || 1;
       return acumulador + cantidad * valorActual.price;
   }, 0);
-    const onSubmit = () => {
-      if (cart.length === 0) {
-        alert("The cart is empty. Please add products before purchasing.");
-      } else {
-        if (!formik.isValid) {
-          alert(
-            "Please complete all required fields correctly."
-          );
-        } else {
-          const numericInputValue2 = parseFloat(inputValue2);
-
-          if (isNaN(numericInputValue2)) {
-            alert("The value entered is not valid. Please enter a number.");
-            return;
-          }
-          cart.forEach((producto) => {
-            addCart(producto, numericInputValue2);
-          });
-          clearCart();
-        }
-      }
-    };
+    
     const formik = useFormik({
       initialValues: {
         name: "",   
         phone: "",  
-        address: "",
         checkbox: false,
       },
       enableReinitialize: true,
       validationSchema,
-      onSubmit,
     })
-    const handlePagoOnline = () => {
-      if (cart.length === 0 ) {
-        alert("The cart is empty. Please add products before purchasing.");
-      }
-      if (Object.keys(formik.values).length === 0){
-        alert("The form is empty");
-      }
-       else {
-        if (Object.keys(formik.values).length === 0) {
-          alert(
-            "Please complete all required fields correctly."
-          );
-        } else {
-          setShowDiv(true);
-          setShowDiv2(false);
-        }
-      }   
-    };
-    const handleEnviarPedido = () => {
-      if (cart.length === 0) {
-        alert("The cart is empty. Please add products before purchasing.");
-      } else {
-        if (Object.keys(formik.values).length === 0) {
-          alert(
-            "Please complete all required fields correctly."
-          );
-        } else {
-          clearCart();
-          formik.resetForm();
-          setShowDiv( false);
-          setShowDiv2 (true); 
-        }  
-      }
-    };
+    
+    
 
     const handleSubmit = () => {
       if (cart.length === 0) {
-        alert("The cart is empty. Please add products before purchasing.");
+        alert("El carrito está vacío. Agrega productos antes de comprar.");
       } else {
         if (Object.keys(formik.values).length === 0) {
           alert(
-            "Please complete all required fields correctly."
+            "Por favor, completa todos los campos obligatorios de manera correcta."
           );
         } else {
+          postUsuario();
           clearCart();
           formik.resetForm();
         }
@@ -143,26 +117,25 @@ export const Carrito= () => {
                     <th>Name</th>
                     <th id="img">img</th>
                     <th>Price</th>
-                    <th>Detalles del pedido</th>
-                    <th>Cantidad</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
             <tbody>
-                {cart.map(producto => (
-                    <tr key={producto.id}>
-                        <td id="td" data-label="Name:">{producto.name}</td>
+                {cart.map(product => (
+                    <tr key={product.id}>
+                        <td id="td" data-label="Titulo:">{product.name}</td>
                         <td id="img">
                             <img
                                 height={60}
-                                src={producto.imagen}
-                                alt={producto.name}
+                                src={product.imagen}
+                                alt={product.name}
                             />
                         </td>
-                        <td id="td" data-label="Price:">{producto.price}</td>
-                        <td id="td" data-label="Detalles:">{producto.description}</td>
-						            <td id="td" data-label="Cantidad:">{producto.cantidad}</td>
+                        <td id="td" data-label="Precio:">{product.price}</td>
+                        <td id="td" data-label="Cantidad:">{product.cantidad}</td>
+                        
                         <td>
-							              <Button variant="danger" onClick={() => removeItemFromCart(producto.id)}>								
+							              <Button variant="danger" onClick={() => removeItemFromCart(product.id)}>								
                                  Delete
                             </Button>
                         </td>
@@ -175,7 +148,6 @@ export const Carrito= () => {
                     <td></td>
                     <td>{total()}</td>
                     <td></td>
-                    <td></td>
                 </tr>
             </tfoot>
         </Table>
@@ -184,9 +156,9 @@ export const Carrito= () => {
         </Button>
 		<br />
     <br />
-		<Form onSubmit={formik.handleSubmit} className="responsive-form1" >
+		<Form onSubmit={formik.handleSubmit} className="responsive-form1"  style={{backgroundColor:"gray", color:"white", display:"flex", flexDirection:"column", padding:"20px", border:"1px solid #ccc"}}>
         <Form.Group  className="form-group1" controlId="formBasicName">
-          <Form.Label className="label-cart">Name</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             onChange={formik.handleChange}
             type="text"
@@ -206,7 +178,7 @@ export const Carrito= () => {
           )}
         </Form.Group>
         <Form.Group  className="form-group1" controlId="formBasicPhone">
-          <Form.Label className="label-cart">Phone</Form.Label>
+          <Form.Label>Phone</Form.Label>
           <Form.Control
             onChange={formik.handleChange}
             type="number"
@@ -233,7 +205,7 @@ export const Carrito= () => {
               value={formik.values.checkbox}
               name="checkbox"
               type="checkbox" 
-              label="Cash payment"
+              label="Validation"
               onBlur={formik.handleBlur}
               className={
                 formik.errors.checkbox &&
@@ -247,55 +219,20 @@ export const Carrito= () => {
         {showDiv2 &&(
        <div>
        <br />
-        <h6>If your payment is in cash, click here</h6>
         <Button 
           id="efectivo"
           variant="primary" 
-          className="button-cart"
+          className="btn btn-info btn-block mt-4"
           type="submit" 
-          style={{
-            backgroundColor: '#372214',
-            border:"none"
-          }}
           onClick={handleSubmit}
           disabled={!formik.isValid || cart.length === 0 || !formik.values.checkbox}>
-          Cash payment
-        </Button>
-        <Button
-        disabled={!formik.isValid || cart.length === 0}
-        variant="primary"
-        className="button-cart"
-        type="submit"
-        style={{
-          backgroundColor: '#372214',
-          border:"none"
-        }}
-        onClick={handlePagoOnline}
-        >
-        Online Payment
+          Buy
         </Button>
         <br />
         <br />
         </div>
         )}
-        {showDiv && (
-        <div>
-          <div className="enviar_pedido">
-            <h6>If you completed the online payment, click here</h6>
-            <Button
-            variant="primary"
-            type="submit"
-            className="btn btn-info btn-block mt-4"
-            onClick={handleEnviarPedido}
-            disabled={!formik.isValid || cart.length === 0}
-            >
-            Send the order
-            </Button>
-          </div>
-          <br />
-          
-        </div>
-        )}
+        
     </Form>
         <Modal show={showModal} onHide={() =>setShowModal(false)}>
             <Modal.Header closeButton>
@@ -303,7 +240,8 @@ export const Carrito= () => {
             </Modal.Header>
             <Modal.Body>
               <p>¡Pedido Realizado Exitosamente!</p>
-              <p>Demora aproximada 15 minutos</p>
+              <p>Demora aproximada 30 minutos</p>
+              <p>ID de la Orden: {orderInfo.orderId}</p>
             </Modal.Body>
         </Modal>
         </>

@@ -11,11 +11,11 @@ import { DataProvider } from "./components/DataContext";
 export const App = () => {
   return (
     <DataProvider>
-    <BrowserRouter>
-       <NavBar/>
-       <Router/>
-       <Footer/>
-    </BrowserRouter>
+      <BrowserRouter>
+        <NavBar/>
+        <Router/>
+        <Footer/>
+      </BrowserRouter>
     </DataProvider>
   )
 }
